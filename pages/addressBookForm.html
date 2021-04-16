@@ -20,6 +20,68 @@
     <div class="form-content">
         <form class="form">
           <div class="form-head">Person Address Form</div>
+          <div class="row-content">
+            <label for="fullname" class="label text">Full Name</label>
+            <input
+              type="text"
+              class="input"
+              id="fullname"
+              name="fullname"
+              placeholder="Your name.."
+              required
+            />
+          </div>
+          <div class="row-content">
+            <label for="address" class="label text">Address</label>
+            <textarea
+              type="text"
+              class="input"
+              id="address"
+              name="address"
+              placeholder="Your address.."
+              required
+            ></textarea>
+          </div>
+          <div class="row-content">
+            <label for="city" class="label text">City</label>
+                <div>
+                <select name="city" id="city" onChange="myScript">
+                    <option value="Panji">Panji</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Delhi">Delhi</option>
+                    </select>   
+                </div>
+                <label for="state" class="label text">State</label>
+                <div>
+                    <select name="state" id="state" onChange="myScript">
+                      <option value="Maharashtra">Maharashtra</option>
+                      <option value="goa">goa</option>
+                      <option value="delhi">delhi</option>
+                    </select>
+                  </div>
+            <label for="zip" class="label text">Zip</label>
+                <div>
+                    <input
+                    type="text"
+                    class="input"
+                    id="zip"
+                    name="zip"
+                    placeholder="Your zip.."
+                    required
+                  />
+                </div>
+          </div>
+            <div class="row-content">
+                <label for="phoneNumber" class="label text">Phone Number</label>
+                <input
+                  type="text"
+                  class="input"
+                  id="phoneNumber"
+                  name="phoneNumber"
+                  placeholder="Your phoneNumber.."
+                  required
+                />
+            </div>
         </form> 
 </body>
 </html>
