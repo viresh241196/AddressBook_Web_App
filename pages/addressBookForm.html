@@ -30,6 +30,7 @@
               placeholder="Your name.."
               required
             />
+            <error-output class="text-error" for="text"></error-output>
           </div>
           <div class="row-content">
             <label for="address" class="label text">Address</label>
@@ -41,6 +42,7 @@
               placeholder="Your address.."
               required
             ></textarea>
+            <error-output class="address-error" for="text"></error-output>
           </div>
           <div class="row-content">
             <label for="city" class="label text">City</label>
@@ -81,7 +83,10 @@
                   placeholder="Your phoneNumber.."
                   required
                 />
+                <error-output class="phone-error" for="text"></error-output>
             </div>
         </form> 
+        <script src="../js/address_form.js"></script>
+        <script src="../js/addressBookData.js"></script>
 </body>
 </html>

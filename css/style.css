@@ -100,3 +100,9 @@ select{
     color:#42515f;
     background-color:transparent;
 }
+error-output {
+    margin-left: 10px;
+    font-size: 12px;
+    font-style: italic;
+    color: red;
+  }
