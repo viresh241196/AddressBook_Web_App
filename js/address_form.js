@@ -49,12 +49,22 @@ const save = () => {
   try {
     let addressBookData = createAddressBook();
     console.log(addressBookData);
-    // createAndUpdateStorage(addressBookData);
+    createAndUpdateStorage(addressBookData);
   } catch (e) {
     return;
   }
 };
-
+function createAndUpdateStorage(addressBookData) {
+    addressbookList = JSON.parse(localStorage.getItem("AddressBookList"));
+    if (addressbookList != undefined) {
+      addressbookList.push(addressBookData);
+    } else {
+      addressbookList = [addressBookData];
+    }
+    alert(addressbookList.toString());
+    localStorage.setItem("AddressBookList", JSON.stringify(addressbookList));
+  }
+  
 const createAddressBook = () => {
   let addressBookData = new AddressBookData();
   try {
