@@ -18,8 +18,14 @@
     </header>
     
     <div class="form-content">
-        <form class="form">
-          <div class="form-head">Person Address Form</div>
+        <form class="form" action="#" onreset="resetForm()" onsubmit="save()">
+             <div class="form-head">
+                <div class="form-info">Person Address Form<div>
+                    <div><img class="cross-image" src="\assets\images\corss.png"></div>
+            </div>
+          </div>
+        </div>
+
           <div class="row-content">
             <label for="fullname" class="label text">Full Name</label>
             <input
@@ -53,7 +59,7 @@
                     <option value="Delhi">Delhi</option>
                     </select>   
                 </div>
-                <label for="state" class="label text">State</label>
+                <label for="state" class="label text state">State</label>
                 <div>
                     <select name="state" id="state" onChange="myScript">
                       <option value="Maharashtra">Maharashtra</option>
@@ -61,7 +67,7 @@
                       <option value="delhi">delhi</option>
                     </select>
                   </div>
-            <label for="zip" class="label text">Zip</label>
+            <label for="zip" class="label text zip">Zip</label>
                 <div>
                     <input
                     type="text"
@@ -84,10 +90,6 @@
                   required
                 />
                 <error-output class="phone-error" for="text"></error-output>
-            </div>
-            <div class="row-content">
-                <input type="text" class="input" id="phone" name="phone" placeholder="Phone Number">  
-                <error-output class="phoneError" for="text"></error-output>
             </div>
             <div class="buttonParent">
                 <button type="submit" class="button submitButton" id="submitButton" >submit</button>                      
