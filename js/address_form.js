@@ -55,7 +55,6 @@ const save = () => {
   }
 };
 
-
 const createAddressBook = () => {
   let addressBookData = new AddressBookData();
   try {
@@ -76,6 +75,6 @@ const createAddressBook = () => {
 };
 
 const getInputValueById = (id) => {
-    let value = document.querySelector(id).value;
-    return value;
-  };
+  let value = document.querySelector(id).value;
+  return value;
+};
