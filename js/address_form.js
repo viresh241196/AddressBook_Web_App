@@ -69,10 +69,8 @@ const createAddressBook = () => {
   let addressBookData = new AddressBookData();
   try {
     addressBookData.name = getInputValueById("#fullname");
-    console.log("working");
   } catch (e) {
     setTextValue(".text-error", e);
-    console.log("not working");
     throw e;
   }
   addressBookData.address = getInputValueById("#address");
