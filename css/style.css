@@ -161,3 +161,16 @@ error-output {
   background-color: #f5f5f5;
   margin-right: 30px;
 }
+.cancelButton {
+  text-decoration: none;
+  text-align: center;
+}
+@media only screen and (max-width: 960px) {
+  .cancelButton {
+    margin-left: 0px;
+  }
+  .form {
+    width: 85%;
+    padding: 44px 20px;
+  }
+}
