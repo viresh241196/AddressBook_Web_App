@@ -56,24 +56,34 @@ const save = () => {
 };
 
 function createAndUpdateStorage(addressBookData) {
-    addressbookList = JSON.parse(localStorage.getItem("AddressBookList"));
-    if (addressbookList != undefined) {
-      addressbookList.push(addressBookData);
-    } else {
-      addressbookList = [addressBookData];
-    }
-    alert(addressbookList.toString());
-    localStorage.setItem("AddressBookList", JSON.stringify(addressbookList));
+  addressbookList = JSON.parse(localStorage.getItem("AddressBookList"));
+  if (addressbookList != undefined) {
+    addressbookList.push(addressBookData);
+  } else {
+    addressbookList = [addressBookData];
   }
-  
+  alert(addressbookList.toString());
+  localStorage.setItem("AddressBookList", JSON.stringify(addressbookList));
+}
+
 const createAddressBook = () => {
   let addressBookData = new AddressBookData();
+  let id;
+  if (localStorage.getItem("counter") != null) {
+    id = localStorage.getItem("counter");
+    id++;
+    localStorage.setItem("counter", id);
+  } else {
+    id = 1;
+    localStorage.setItem("counter", id);
+  }
   try {
     addressBookData.name = getInputValueById("#fullname");
   } catch (e) {
     setTextValue(".text-error", e);
     throw e;
   }
+  addressBookData.id = id;
   addressBookData.address = getInputValueById("#address");
   addressBookData.city = getInputValueById("#city");
   addressBookData.state = getInputValueById("#state");
