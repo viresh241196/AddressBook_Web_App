@@ -54,6 +54,7 @@ const save = () => {
     return;
   }
 };
+
 function createAndUpdateStorage(addressBookData) {
     addressbookList = JSON.parse(localStorage.getItem("AddressBookList"));
     if (addressbookList != undefined) {
