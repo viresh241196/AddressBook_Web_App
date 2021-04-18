@@ -1,24 +1,24 @@
 let addressbookList;
 window.addEventListener("DOMContentLoaded", (event) => {
-    addressbookList = getaddressbookDataFromStorage();
+  addressbookList = getaddressbookDataFromStorage();
   document.querySelector(".emp-count").textContent = addressbookList.length;
   createInnerHtml();
-  localStorage.removeItem('editEmp');
+  localStorage.removeItem("editEmp");
 });
 
 const getaddressbookDataFromStorage = () => {
-    return localStorage.getItem("AddressBookList")
-      ? JSON.parse(localStorage.getItem("AddressBookList"))
-      : [];
-  };
-  
-  const createInnerHtml = () => {
-    if (addressbookList.length == 0) return;
-    const headerHtml =
-      "<th>ID</th><th>Name</th><th>Address</th><th>Phone Number</th><th>City</th><th>State</th><th>zip</th><th>Action</th>";
-    let innerHtml = `${headerHtml}`;
-    for (const addressbookData of addressbookList) {
-      innerHtml = `${innerHtml}
+  return localStorage.getItem("AddressBookList")
+    ? JSON.parse(localStorage.getItem("AddressBookList"))
+    : [];
+};
+
+const createInnerHtml = () => {
+  if (addressbookList.length == 0) return;
+  const headerHtml =
+    "<th>ID</th><th>Name</th><th>Address</th><th>Phone Number</th><th>City</th><th>State</th><th>zip</th><th>Action</th>";
+  let innerHtml = `${headerHtml}`;
+  for (const addressbookData of addressbookList) {
+    innerHtml = `${innerHtml}
       <tr>
         <td>${addressbookData._id}</td>
         <td>${addressbookData._name}</td>
@@ -33,19 +33,25 @@ const getaddressbookDataFromStorage = () => {
           </td>
       </tr>
       `;
-    }
-    document.querySelector("#table-display").innerHTML = innerHtml;
-  };
+  }
+  document.querySelector("#table-display").innerHTML = innerHtml;
+};
 
-  const remove = (node) => {
-    console.log(node)
+const remove = (node) => {
   let addressbookData = addressbookList.find((Data) => Data._id == node.id);
   if (!addressbookData) return;
   const index = addressbookList
     .map((Data) => Data._id)
     .indexOf(addressbookData._id);
-    addressbookList.splice(index, 1);
+  addressbookList.splice(index, 1);
   localStorage.setItem("AddressBookList", JSON.stringify(addressbookList));
   document.querySelector(".emp-count").textContent = addressbookList.length;
   createInnerHtml();
+};
+
+const update = (node) => {
+  let addressbookData = addressbookList.find((Data) => Data._id == node.id);
+  if (!addressbookData) return;
+  localStorage.setItem("editEmp", JSON.stringify(addressbookData));
+  window.location.replace("../pages/addressBookForm.html");
 };

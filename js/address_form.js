@@ -1,3 +1,6 @@
+let isUpdate = false;
+let addressbookObj = {};
+
 window.addEventListener("DOMContentLoaded", (event) => {
   const name = document.querySelector("#fullname");
   const textError = document.querySelector(".text-error");
@@ -13,6 +16,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
       textError.textContent = e;
     }
   });
+  checkForUpdate();
 });
 
 const address = document.querySelector("#address");
@@ -96,4 +100,32 @@ const createAddressBook = () => {
 const getInputValueById = (id) => {
   let value = document.querySelector(id).value;
   return value;
+};
+
+const setForm = () => {
+  setValue("#fullname", addressbookObj._name);
+  setValue("#address", addressbookObj._address);
+  setValue("#city", addressbookObj._city);
+  setValue("#state", addressbookObj._state);
+  setValue("#zip", addressbookObj._zip);
+  setValue("#phoneNumber", addressbookObj._phoneNumber);
+};
+
+const setTextValue = (id, value) => {
+    const element = document.querySelector(id);
+    element.textContent = value;
+  };
+  
+  const setValue = (id, value) => {
+    const element = document.querySelector(id);
+    element.value = value;
+  };
+
+const checkForUpdate = () => {
+  const addressbookJson = localStorage.getItem("editEmp");
+  isUpdate = addressbookJson ? true : false;
+  if (!isUpdate) return;
+  addressbookObj = JSON.parse(addressbookJson);
+  console.log(addressbookObj);
+  setForm();
 };
