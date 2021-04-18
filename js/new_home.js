@@ -17,18 +17,18 @@ const getaddressbookDataFromStorage = () => {
     const headerHtml =
       "<th>ID</th><th>Name</th><th>Address</th><th>Phone Number</th><th>City</th><th>State</th><th>zip</th>";
     let innerHtml = `${headerHtml}`;
-
+    for (const addressbookData of addressbookList) {
       innerHtml = `${innerHtml}
       <tr>
-        <td>1</td>
-        <td>viresh</td>
-        <td>parel</td>
-        <td>8655899904</td>
-        <td>mumbai</td>
-        <td>maharashtra</td>
-        <td>400012</td>
+        <td>${addressbookData._id}</td>
+        <td>${addressbookData._name}</td>
+        <td>${addressbookData._address}</td>
+        <td>${addressbookData._phoneNumber}</td>
+        <td>${addressbookData._city}</td>
+        <td>${addressbookData._state}</td>
+        <td>${addressbookData._zip}</td>
       </tr>
       `;
-
+    }
     document.querySelector("#table-display").innerHTML = innerHtml;
   };
