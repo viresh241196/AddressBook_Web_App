@@ -49,14 +49,29 @@ phone.addEventListener("input", function () {
   }
 });
 
-const save = () => {
-  try {
+const save = (event) => {
+//   event.preventDefault();
+//   event.stopPropagation();
+//   try {
+//     setAddressBookObject();
+//     createAndUpdateStorage();
+//     resetForm();
+//     window.location.replace("../pages/addressBookForm.html");
     let addressBookData = createAddressBook();
     console.log(addressBookData);
     createAndUpdateStorage(addressBookData);
   } catch (e) {
     return;
   }
+};
+
+const setAddressBookObject = () => {
+  addressBookObj._name = getInputValueById("#fullname");
+  addressBookObj._address = getInputValueById("#address");
+  addressBookObj._city = getInputValueById("#city");
+  addressBookObj._state = getInputValueById("#state");
+  addressBookObj._zip = getInputValueById("#zip");
+  addressBookObj._phoneNumber = getInputValueById("#phoneNumber");
 };
 
 function createAndUpdateStorage(addressBookData) {
@@ -112,14 +127,14 @@ const setForm = () => {
 };
 
 const setTextValue = (id, value) => {
-    const element = document.querySelector(id);
-    element.textContent = value;
-  };
-  
-  const setValue = (id, value) => {
-    const element = document.querySelector(id);
-    element.value = value;
-  };
+  const element = document.querySelector(id);
+  element.textContent = value;
+};
+
+const setValue = (id, value) => {
+  const element = document.querySelector(id);
+  element.value = value;
+};
 
 const checkForUpdate = () => {
   const addressbookJson = localStorage.getItem("editEmp");
